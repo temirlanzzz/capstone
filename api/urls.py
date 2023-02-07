@@ -5,6 +5,7 @@ urlpatterns = [
     path('retrain/', views.retrain_model),
     path('test/', views.evaluate_model),
     path('randomimage/', views.get_unlabeled_image),
+    path('label/', views.change_label),
     path('create/', views.create_image),
     path('generate/', views.create_images),
     path('images/', views.get_images),
