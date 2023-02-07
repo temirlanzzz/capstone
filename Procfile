@@ -1,1 +1,1 @@
-web: gunicorn agro.wsgi --preload --timeout 30 --log-file -
+web: gunicorn agricloud.wsgi --preload --timeout 30 --log-file -
