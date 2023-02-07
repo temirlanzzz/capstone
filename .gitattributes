@@ -1,0 +1,2 @@
+tf_model/my_model4.h5 filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
