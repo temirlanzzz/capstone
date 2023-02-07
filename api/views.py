@@ -131,9 +131,8 @@ def revert(request):
 @api_view(['POST'])
 def evaluate_model(request):
     print("loading test images")
-    images = Evaluator.objects.filter(label=Evaluator.LANTERNFLY_LABEL)
     data = request.data
-    tasks.evaluate_script.apply_async(args=(data, images), queue='queue_name')
+    tasks.evaluate_script.apply_async(args=(data), queue='queue_name')
     return Response({"message": f"Model tested successfully"}, status=status.HTTP_200_OK)
     
 
@@ -168,8 +167,7 @@ def unused_used(request):
 def retrain_model(request):
     print("Retraining the model...")
     data = request.data
-    images = Image.objects.filter(status=Image.USED_STATUS)
-    tasks.retrain_script.apply_async(args = (data, images), queue='queue_name')
+    tasks.retrain_script.apply_async(args = (data), queue='queue_name')
     return Response({"message": "Model retrained successfully."}, status=status.HTTP_200_OK)
         
 

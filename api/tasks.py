@@ -30,7 +30,8 @@ def test_images_creator(pages, data):
                 i+=1
     return 0
 @shared_task
-def evaluate_script( data, images):
+def evaluate_script( data):
+    images = Evaluator.objects.filter(label=Evaluator.LANTERNFLY_LABEL)
     preprocessed_new_images=[]
     i=0
     for image in images:
@@ -111,7 +112,8 @@ def evaluate_script( data, images):
     os.remove(f"{last_classifier.name}")
 
 @shared_task
-def retrain_script( data, images):
+def retrain_script( data):
+    images = Image.objects.filter(status=Image.USED_STATUS)
     RETRAIN_LIMIT = 100
     i=0
     preprocessed_new_images=[]
