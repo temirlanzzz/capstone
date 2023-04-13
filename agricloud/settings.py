@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'api',
     'storages',
     'rest_framework',
-    'django.contrib.sites',
     'celery',
 ]
 
