@@ -100,8 +100,9 @@ def get_evaluator(request, pk):
 #shows single unlabeled image on mobile app
 @api_view(['GET'])
 def get_unlabeled_image(request):
-    image = Image.objects.filter(label=Image.NOT_LABELED)[0]
-    serializer = ImageSerializer(image, many = False)
+    images = list(Image.objects.filter(label=Image.NOT_LABELED))
+    random_image = random.choice(images)
+    serializer = ImageSerializer(random_image, many = False)
     return Response(serializer.data)
 @api_view(['GET'])
 def get_number_used(request):
