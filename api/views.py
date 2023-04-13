@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import tensorflow as tf
+import random
 from PIL import Image as PILImage
 from django.http import JsonResponse
 from rest_framework.response import Response
