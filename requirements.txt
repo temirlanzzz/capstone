@@ -1,6 +1,5 @@
 ﻿boto3
 cryptography
-random
 celery
 Django
 djangorestframework
